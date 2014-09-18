@@ -1,0 +1,23 @@
+vsftpd login failed with message:
+
+500 OOPS: cannot change directory:/home/imaging
+
+the reason is SELinux module configuration.
+
+[root@sun02 vsftpd]# getenforce
+Enforcing
+[root@sun02 vsftpd]# getsebool -a | grep ftp
+allow_ftpd_anon_write –> off
+allow_ftpd_full_access –> off
+allow_ftpd_use_cifs –> off
+allow_ftpd_use_nfs –> off
+allow_tftp_anon_write –> off
+*ftp_home_dir –> on (change that to on in ur case this option is off)
+ftpd_disable_trans –> off
+ftpd_is_daemon –> on
+httpd_enable_ftp_server –> off
+tftpd_disable_trans –> off
+
+[root@sun02 vsftpd]# setseboll -P ftp_home_dir on
+
+restart vsftpd, it's OK.
