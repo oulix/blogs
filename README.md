@@ -1,2 +1,2 @@
-blogs
+My blogs in Github 
 =====
