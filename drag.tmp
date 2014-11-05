@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<title></title>
+<meta charset="utf-8">
+<script src="./jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+ var fx;
+ var fy;
+ var flag = false;
+ var title = $("#m_div_title");
+ var m_div = $("#m_div");
+ m_div.mousemove(function (event) {
+  if (flag) {
+   var myEvent = event || window.event;
+   changeXY(m_div, myEvent);
+  }
+ });
+ m_div.mouseup(function () {
+  title.unbind("mousemove");
+  flag = false;
+ });
+ title.mousedown(function (event) {
+  var t = $(this);
+  var myEvent = event || window.event;
+  fx = myEvent.clientX;
+  fy = myEvent.clientY;
+  t.mousemove(function (event) {
+   var myEvent = event || window.event;
+   changeXY(m_div, myEvent);
+   flag = true;
+  });
+  return false;
+ });
+ title.mousemove(function (event) {
+   var myEvent = event || window.event;
+   changeXY(m_div, myEvent);
+   flag = true;
+ })
+  
+ function changeXY(m_div, myEvent) {
+  if (fx > myEvent.clientX) {
+   var change_top_x = parseInt(m_div.css("left")) - (fx - myEvent.clientX);
+   //测试是否超出左边窗口
+   if (change_top_x < 5) {
+    change_top_x = 5;
+    //flag = false;
+    //title.unbind("mousemove");
+   }
+   m_div.css("left", change_top_x + "px");
+   fx = myEvent.clientX;
+  }
+  if (fx < myEvent.clientX) {
+   var change_top_x = parseInt(m_div.css("left")) + (myEvent.clientX - fx);
+   //测试是否超出窗口右边
+   if (change_top_x > ($(window).width() - parseInt(m_div.css("width")) - 5)) {
+    change_top_x = ($(window).width() - parseInt(m_div.css("width")) - 5);
+    //flag = false;
+    //title.unbind("mousemove");
+   }
+   m_div.css("left", change_top_x + "px");
+   fx = myEvent.clientX;
+  }
+  if (fy > myEvent.clientY) {
+   var change_top_y = parseInt(m_div.css("top")) - (fy - myEvent.clientY);
+   //测试是否超出窗口顶部
+   if (change_top_y < 5) {
+    change_top_y = 5;
+    // flag = false;
+    // title.unbind("mousemove");
+   }
+   m_div.css("top", change_top_y + "px");
+   fy = myEvent.clientY;
+  }
+  if (fy < myEvent.clientY) {
+   var change_top_y = parseInt(m_div.css("top")) + (myEvent.clientY - fy);
+   //测试是否超出窗口底部
+   if (change_top_y > ($(window).height() - parseInt(m_div.css("height")) - 5)) {
+    change_top_y = ($(window).height() - parseInt(m_div.css("height")) - 5);
+    //flag = false;
+    //title.unbind("mousemove");
+   }
+   m_div.css("top", change_top_y + "px");
+   fy = myEvent.clientY;
+  }
+ }
+ title.mouseup(function () {
+  title.unbind("mousemove");
+  flag = false;
+ });
+ title.mouseout(function () {
+  title.unbind("mousemove");
+  document.onmousemove = document.onmouseup = null;
+ });
+});  
+  </script>
+<style>
+#m_div {
+ border: 1px solid #000000;
+ width: 400px;
+ height: 250px;
+ position: absolute;
+ top: 300px;
+ left: 400px;
+ background-color: #FFFFFF;
+}
+#m_div_title {
+ background: #ffffff;
+ height: 250px;
+ color: #FFFFFF;
+ cursor: crosshair
+}
+</style>
+ </head>
+ <body>
+ 
+  <div id="m_div">
+   <div id="m_div_title">
+    <span style="margin-right: 280px"></span>
+    <img id="img" src="/skins/2009/images/logo.gif">
+   </div>
+  </div>
+ </body>
+</html>
+
+
+
