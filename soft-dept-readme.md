@@ -65,7 +65,7 @@
 | --- | --- | --- |
 |Visual Studio 2017 |	15.9.18 |	微软社区版|
 |Windows SDK |	10.0.17763.132	|  |
-|Qt	| 5.12.0 | 开源安装包 http://download.qt.io/official_releases/qt/5.12/5.12.0/qt-opensource-windows-x86-5.12.0.exe |
+|Qt	| 5.12.0 | 开源安装包 <br> http://download.qt.io/official_releases/qt/5.12/5.12.0/qt-opensource-windows-x86-5.12.0.exe |
 | log4cplus |	2.0.4 |	Windows10平台, 静态编译 |
 | VTK | 	8.2 | 	Windows10平台, 静态编译 |
 | ITK	| 暂缺	| 暂缺 | 
