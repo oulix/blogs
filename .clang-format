@@ -1,0 +1,47 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+BasedOnStyle: LLVM
+Standard: Cpp11
+IndentPPDirectives: AfterHash
+AllowShortFunctionsOnASingleLine: Empty
+BinPackArguments: false
+IndentWidth: 4
+AlwaysBreakTemplateDeclarations: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+ReflowComments: false
+SpaceAfterCStyleCast: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: true
+ColumnLimit: 110
+AllowAllParametersOfDeclarationOnNextLine: true
+AlignEscapedNewlines: Left
+BinPackParameters: false
+AccessModifierOffset: -4
+FixNamespaceComments: true
+#SpacesBeforeTrailingComments: 1
+BreakConstructorInitializers: BeforeComma
+ReflowComments: false
+BinPackParameters: false
+PointerBindsToType: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterClass: true
+    AfterControlStatement: false
+    AfterEnum: false
+    AfterFunction: true
+    AfterNamespace: false
+    AfterObjCDeclaration: false
+    AfterStruct: false
+    AfterUnion: false
+    BeforeCatch: false
+    BeforeElse: false
+    IndentBraces: false
+AlignAfterOpenBracket: true
+AlwaysBreakTemplateDeclarations: true
+NamespaceIndentation: None
+SortIncludes: false
+ForEachMacros: [ forever, foreach, Q_FOREACH, BOOST_FOREACH ]
