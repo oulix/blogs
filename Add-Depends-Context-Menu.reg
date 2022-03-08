@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\*]
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Depends]
+@="Find Dependency"
+"icon"="powershell.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Depends\command]
+@="powershell.exe -noexit \"C:\\bin\\dumpbin.exe /DEPENDENTS \" \"%1\""
